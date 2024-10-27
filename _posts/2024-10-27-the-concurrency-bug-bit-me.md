@@ -1,7 +1,7 @@
 ---
-title: So, the concurrency bug bit me
-date: 2024-10-27 12:00:00 -500
-Categories: [concurrency]
+title: "So, the concurrency bug bit me"
+date: 2024-10-27 00:00:00
+Categories: [Concurrency]
 tags: [python3,python]
 ---
 
