@@ -16,7 +16,7 @@ timezone:
 
 title: O(1) # the main title
 
-tagline: Developer diary # it will display as the subtitle
+tagline: "Hari's dev diary" # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A personal take on software development, exploring the latest trends, tools, and techniques in the tech industry.
