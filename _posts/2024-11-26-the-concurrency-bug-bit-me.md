@@ -1,5 +1,5 @@
 ---
-title: "Knock knock! \n Race Condition! \n Who's there?"
+title: "Knock knock! <br> Race Condition!<br> Who's there?<br>"
 date: 2024-10-26 00:00:00
 Categories: [concurrency,threading]
 tags: [python3,python]
