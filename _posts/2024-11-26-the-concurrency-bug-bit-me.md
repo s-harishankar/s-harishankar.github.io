@@ -5,8 +5,6 @@ Categories: [concurrency]
 tags: [python3,python]
 ---
 
-# Concurrency in Python3
-
 A few months ago, on a quiet Tuesday evening, the dreaded concurrency bug bit me. The ask was simple—"speed up" some 
 python code that collected data from several network-connected devices in a long-running for loop—seemed straightforward. **Easy**, I thought. 
 **Why not throw in some threads to make this thing fly?**
@@ -24,7 +22,7 @@ this one's gonna be a bit of a rabbithole!
 So, what are threads? Threads in Python are a way of running multiple operations concurrently within the same program. They are
 particularly useful for tasks that are I/O-bound. But why? Let's break it down.
 
-###### What is an I/O bound task, you may ask? 
+##### What is an I/O bound task, you may ask? 
 
 When we say a task is I/O-bound, we're referring to operations that spend most of their time waiting for external resources or
 input/output (I/O) operations to complete. These resources could include things like disk access, database 
@@ -39,7 +37,7 @@ While I/O-bound tasks are waiting on external systems, CPU-bound tasks are limit
 Tasks that perform complex mathematical operations or run algorithms that require a lot of CPU cycles are good examples 
 of CPU-bound tasks.
 
-###### Alright! Now why are threads "particularly" useful for I/O bound tasks? And why not for CPU bound ones?
+##### Alright! Now why are threads "particularly" useful for I/O bound tasks? And why not for CPU bound ones?
 
 To answer this, we first need to understand Global Interpreter Lock (GIL).
 
