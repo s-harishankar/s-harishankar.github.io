@@ -1,6 +1,6 @@
 ---
-title: "So, the concurrency bug bit me"
-date: 2024-10-27 00:00:00
+title: "Knock knock! \n Race Condition! \n Who's there?"
+date: 2024-10-26 00:00:00
 Categories: [concurrency,threading]
 tags: [python3,python]
 ---
