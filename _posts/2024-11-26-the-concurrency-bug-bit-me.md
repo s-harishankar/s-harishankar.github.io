@@ -1,8 +1,8 @@
 ---
 title: "Knock knock! Race Condition! Who's there?"
-date: 2024-10-26 00:00:00
+date: 2024-11-26 00:00:00
 Categories: [concurrency]
-tags: [python3,python]
+tags: [python,concurrency]
 ---
 
 A few months ago, on a quiet Tuesday evening, the dreaded concurrency bug bit me. The ask was simple—"speed up" some 
