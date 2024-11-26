@@ -22,7 +22,7 @@ this one's gonna be a bit of a rabbithole!
 So, what are threads? Threads in Python are a way of running multiple operations concurrently within the same program. They are
 particularly useful for tasks that are I/O-bound. But why? Let's break it down.
 
-##### What is an I/O bound task? 
+### What is an I/O bound task? 
 
 When we say a task is I/O-bound, we're referring to operations that spend most of their time waiting for external resources or
 input/output (I/O) operations to complete. These resources could include things like disk access, database 
@@ -37,7 +37,7 @@ While I/O-bound tasks are waiting on external systems, CPU-bound tasks are limit
 Tasks that perform complex mathematical operations or run algorithms that require a lot of CPU cycles are good examples 
 of CPU-bound tasks.
 
-##### Why are threads "particularly" useful for I/O bound tasks?
+### Why are threads "particularly" useful for I/O bound tasks?
 
 Before trying to answer this question, we first need to understand the Global Interpreter Lock (GIL). GIL, in 
 simple words, is a lock that prevents multiple native threads from running Python bytecode simultaneously. It is
@@ -86,7 +86,7 @@ timeit.timeit(lambda:time_threaded_execution(),number=1)
 An I/O bound task on the other hand, can simply "drop" the GIL while it is waiting on an I/O
 operation to complete, allowing other threads to run.
 
-##### Why does the GIL exist though?
+### Why does the GIL exist though?
 
 The GIL exists primarily for simplified memory management in Python which uses reference counting 
 for memory management. What this means is an object created in Python, would have a reference counter
@@ -104,7 +104,7 @@ The Global Interpreter Lock on the other hand, is a single lock on the interpret
 Python bytecode requires acquiring the interpreter lock. While this prevents deadlocks and doesn't degrade performance, it effectively makes
 any CPU-bound program single-threaded.
 
-##### Aaand back to my story
+### Aaand back to my story
 
 Right! So it all lines up, doesn't it? We've got a large number of I/O bound tasks; threads are a good fit for I/O bound tasks; 
 Inference: Let's rock some threads, what could go wrong?
