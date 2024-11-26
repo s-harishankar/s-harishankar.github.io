@@ -1,7 +1,7 @@
 ---
 title: "Knock knock! Race Condition! Who's there?"
 date: 2024-11-26 00:00:00
-categories: [concurrency]
+categories: [Concurrency]
 tags: [python,concurrency]
 ---
 
