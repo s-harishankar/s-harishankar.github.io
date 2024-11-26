@@ -1,7 +1,7 @@
 ---
 title: "Knock knock! Race Condition! Who's there?"
 date: 2024-11-26 00:00:00
-Categories: [concurrency]
+categories: [concurrency]
 tags: [python,concurrency]
 ---
 
@@ -22,7 +22,7 @@ this one's gonna be a bit of a rabbithole!
 So, what are threads? Threads in Python are a way of running multiple operations concurrently within the same program. They are
 particularly useful for tasks that are I/O-bound. But why? Let's break it down.
 
-##### What is an I/O bound task, you may ask? 
+##### What is an I/O bound task? 
 
 When we say a task is I/O-bound, we're referring to operations that spend most of their time waiting for external resources or
 input/output (I/O) operations to complete. These resources could include things like disk access, database 
@@ -37,9 +37,9 @@ While I/O-bound tasks are waiting on external systems, CPU-bound tasks are limit
 Tasks that perform complex mathematical operations or run algorithms that require a lot of CPU cycles are good examples 
 of CPU-bound tasks.
 
-##### Alright! Now why are threads "particularly" useful for I/O bound tasks? And why not for CPU bound ones?
+##### And why are threads "particularly" useful for I/O bound tasks?
 
-To answer this, we first need to understand Global Interpreter Lock (GIL).
+Before trying to answer this question, we first need to understand the Global Interpreter Lock (GIL).
 
 
 
