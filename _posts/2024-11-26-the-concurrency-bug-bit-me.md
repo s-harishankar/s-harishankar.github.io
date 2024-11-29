@@ -95,7 +95,7 @@ zero, the memory occupied by that object is released.
 
 In a multi-threaded program, multiple threads share the same memory space, which is actually a strength providing 
 performance benefits. This means that multiple threads would be able to 
-freely modify variables that are shared between threads - this includes the reference counter. This necessitates the protection
+freely modify variables that are shared between threads—this includes the reference counter. This necessitates the protection
 of the reference counter variable from race conditions where two threads increase or decrease its value simultaneously. While this can be achieved
 by adding locks to _all_ datastructures that are shared across threads, it comes with a significant overhead and also opens up 
 possibilities for deadlocks.
@@ -104,20 +104,124 @@ The Global Interpreter Lock on the other hand, is a single lock on the interpret
 Python bytecode requires acquiring the interpreter lock. While this prevents deadlocks and doesn't degrade performance, it effectively makes
 any CPU-bound program single-threaded.
 
-## Aaand back to my story
+## Circling back to my story
 
 Right! So it all lines up, doesn't it? We've got a large number of I/O bound tasks; threads are a good fit for I/O bound tasks; 
 Inference: Let's rock some threads, what could go wrong?
 
-Enter - Race Conditions
+Enter - Race Conditions.
+```python
+import time
+import random
 
+counter = 0
 
+def wait_on_network_or_disk():
+  time.sleep(random.random())
 
+def worker():
+    # What is my purpose?
+    # You increment counter
+    global counter
 
+    wait_on_network_or_disk()
+    counter += 1 # some glob var that is updated in each iteration
+    wait_on_network_or_disk()
 
+    print(f"The count is {counter}")
+    print('-'*10)
 
+print("Starting Up")
+for i in range(10):
+    worker()
+print("Finishing up")
+```
+Shown above is a watered-down outline of what the legacy script was doing. It would perform a well-defined unit of I/O bound "work", several times in a sequence. This 
+would produce a simple and straight-forward result - something very sane, easy to trace & easy to debug. 
+```commandline
+Starting Up
+The count is 1
+----------
+The count is 2
+----------
+The count is 3
+----------
+The count is 4
+----------
+The count is 5
+----------
+The count is 6
+----------
+The count is 7
+----------
+The count is 8
+----------
+The count is 9
+----------
+The count is 10
+----------
+Finishing up
+```
+The only problem with this approach is that each unit of work executes sequentially, one after the other. And with each of these tasks
+being I/O bound, the overall wait times would have a snowball effect. So if we were to perform each of these units of work, parallely instead
+of sequentially using the threading module, that should have a net positive effect right? Wrong!
+```python
+import time
+import random
+import threading
 
+counter = 0
 
+def wait_on_network_or_disk():
+  time.sleep(random.random())
 
+def worker():
+    # What is my purpose?
+    # You increment counter
+    global counter
 
+    wait_on_network_or_disk()
+    counter += 1
+    wait_on_network_or_disk()
 
+    print(f"The count is {counter}")
+    print('-'*10)
+
+print("Starting Up")
+for i in range(10):
+    threading.Thread(target=worker).start()
+print("Finishing up")
+```
+The Python threading module allows you to run multiple operations concurrently in a single process by means of threads. A thread is a seperate
+flow of execution in a program. Each thread runs independently, but shares the same memory space—allowing for fast communication 
+between threads. This concurrent access to shared data can also lead to race conditions—like the one shown below.
+```commandline
+Starting Up
+Finishing up
+The count is 3
+----------
+The count is 6
+----------
+The count is 7
+----------
+The count is 10
+----------
+The count is 10
+----------
+The count is 10
+----------
+The count is 10
+----------
+The count is 10
+----------
+The count is 10
+----------
+The count is 10
+----------
+```
+So like I said at the very beginning of this post, in my attempt to solve one problem, "left I was two problems with"
+
+**(A deafening explosion of energy erupts as the screen fades to black)**
+
+Is GIL truly the enemy, or is there more to this than what meets the eye? What happens next? Find out what follows, on the next episode
+of Dragon-Ball-Z!
