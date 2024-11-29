@@ -223,5 +223,5 @@ So like I said at the very beginning of this post, in my attempt to solve one pr
 
 **(A deafening explosion of energy erupts as the screen fades to black)**
 
-_Is GIL truly the enemy, or is there more to this than what meets the eye? What happens next? Find out what follows, on the next episode
+_Is GIL truly the enemy, or is there more to this than meets the eye? Can we stop the inevitable? Find out, on the next episode
 of Dragon-Ball-Z!_
