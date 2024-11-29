@@ -6,7 +6,7 @@ tags: [python,concurrency]
 ---
 
 A few months ago, on a quiet Tuesday evening, the dreaded concurrency bug bit me. The ask was simple—"speed up" some 
-python code that collected data from several network-connected devices in a long-running for loop—seemed straightforward. **Easy**, I thought. 
+python code that collected data from several network-connected devices in a long-running for loop. Seemed straightforward. **Easy**, I thought. 
 **Why not throw in some threads to make this thing fly?**
 
 The result? left I was two problems with.
@@ -223,5 +223,5 @@ So like I said at the very beginning of this post, in my attempt to solve one pr
 
 **(A deafening explosion of energy erupts as the screen fades to black)**
 
-Is GIL truly the enemy, or is there more to this than what meets the eye? What happens next? Find out what follows, on the next episode
-of Dragon-Ball-Z!
+_Is GIL truly the enemy, or is there more to this than what meets the eye? What happens next? Find out what follows, on the next episode
+of Dragon-Ball-Z!_
