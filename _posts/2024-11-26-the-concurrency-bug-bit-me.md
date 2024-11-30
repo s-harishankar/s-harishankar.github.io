@@ -224,5 +224,3 @@ So like I said at the very beginning of this post, in my attempt to solve one pr
 
 _Is GIL truly the enemy, or is there more to this than meets the eye? Can we stop the inevitable? Find out, on the next episode
 of Dragon-Ball-Z!_
-
-"So the Python concurrency bug bit me... and it wasn't pretty. Tag along as I share lessons learned in the first part of my multi-part blog series!"
