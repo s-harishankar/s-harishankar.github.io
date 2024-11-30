@@ -93,8 +93,7 @@ for memory management. What this means is an object created in Python, would hav
 variable that keeps track of the number of references pointing to that object. When this count reaches
 zero, the memory occupied by that object is released.
 
-In a multi-threaded program, multiple threads share the same memory space, which is actually a strength providing 
-performance benefits. This means that multiple threads would be able to 
+In a multi-threaded program, multiple threads share the same memory space. This means that multiple threads would be able to 
 freely modify variables that are shared between threads—this includes the reference counter. This necessitates the protection
 of the reference counter variable from race conditions where two threads increase or decrease its value simultaneously. While this can be achieved
 by adding locks to _all_ datastructures that are shared across threads, it comes with a significant overhead and also opens up 
@@ -225,3 +224,5 @@ So like I said at the very beginning of this post, in my attempt to solve one pr
 
 _Is GIL truly the enemy, or is there more to this than meets the eye? Can we stop the inevitable? Find out, on the next episode
 of Dragon-Ball-Z!_
+
+"So the Python concurrency bug bit me... and it wasn't pretty. Tag along as I share lessons learned in the first part of my multi-part blog series!"
