@@ -1,0 +1,12 @@
+---
+---
+
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+#sidebar #avatar {
+  display: none !important;
+}
