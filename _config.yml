@@ -13,11 +13,11 @@ timezone: Asia/Kolkata
 # ↓ --------------------------
 
 title: copium
-tagline: "notes from the debug spiral"
+tagline: "a dev diary for staying in motion"
 
 description: >-
-  Writing about backend systems, machine learning, security, developer tools,
-  and the occasional software-induced existential crisis.
+  A candid developer diary on learning programming and machine learning,
+  because sometimes the only real copium is proof you showed up and learned.
 
 # Fill in the protocol & hostname for your site.
 url: "https://s-harishankar.github.io"
@@ -76,10 +76,8 @@ theme_mode:
 # The CDN endpoint for media resources.
 cdn:
 
-# Sidebar avatar
-# Recommend replacing this expiring LinkedIn image URL with a local asset later,
-# e.g. /assets/img/avatar.jpg
-avatar: https://media.licdn.com/dms/image/v2/C5603AQEw_6Tfi_Bk8w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1659509669347?e=1735776000&v=beta&t=zOdvhRB7zJXQVxGLGzs15uN-Zsv_QxL2iBmh5O-C36o
+# Sidebar avatar removed
+avatar:
 
 # Site-wide social preview image for SEO
 social_preview_image:
